@@ -1,6 +1,8 @@
 import subprocess
 import os
 
+from Winding import Winding
+from Section import Section
 
 def run_asy_file(asy_file, img_file=None, fmt="png"):
     """Runs asymptote code located in asy_file and writes to
@@ -32,8 +34,6 @@ def run_asy_file(asy_file, img_file=None, fmt="png"):
         return SVG(filename=img_file), asy_stdout
 
 
-
-
 def diagram():
 
     asy_commands = []
@@ -61,6 +61,13 @@ draw((0, 0.25) -- (5, 0.25), currentpen + dashed);
             asyFile.write(command + '\n')
 
     run_asy_file("test.asy", fmt="png")
+
+
+winding = Winding("primary")
+
+section = Section("sect1", 12,)
+
+section.create_asy_commands()
 
 
 diagram()
