@@ -65,9 +65,16 @@ draw((0, 0.25) -- (5, 0.25), currentpen + dashed);
 
 winding = Winding("primary")
 
-section = Section("sect1", 12,)
+section = Section("sect1", 6,)
 
 section.create_asy_commands()
 
+with open("out.asy", "w") as outFile:
+    outFile.write('settings.outformat = "pdf";\n')
+    outFile.write('unitsize(1cm);\n')
 
-diagram()
+    for cmd in section.asy_commands:
+        outFile.write(cmd + '\n')
+
+
+#diagram()
