@@ -1,5 +1,6 @@
 import subprocess
 import os
+from yaml import Loader, load
 
 from Winding import Winding
 from Section import Section
@@ -26,12 +27,12 @@ def run_asy_file(asy_file, img_file=None, fmt="png"):
 
     asy_ret_code = asy_proc.wait()
     if asy_ret_code != 0:
-        raise AsymptoteException(asy_proc.stderr.read())
+        raise Exception(asy_proc.stderr.read())
 
     asy_stdout = asy_proc.stdout.read()
 
-    if fmt == "svg":
-        return SVG(filename=img_file), asy_stdout
+  #  if fmt == "svg":
+  #      return SVG(filename=img_file), asy_stdout
 
 
 def diagram():
@@ -78,3 +79,9 @@ with open("out.asy", "w") as outFile:
 
 
 #diagram()
+
+
+with open ("build.yml", "r") as yamlFile:
+
+    build = load(yamlFile,Loader=Loader)
+

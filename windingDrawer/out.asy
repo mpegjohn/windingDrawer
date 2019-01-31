@@ -21,4 +21,3 @@ draw((2, 2.25) -- (7, 2.25), currentpen+dashed);
 currentpen=linewidth(1.5);
 dot((2 ,0));
 dot((2, 2.5));
-label("1",(1.75, 0));

@@ -32,7 +32,7 @@ class Section:
         # If its pointing right position the label to the right
         if self.end_point[0] > self.start_point[0]:
             end_label_point = (self.end_point[0] + 0.25, self.end_point[1])
-         self.asy_commands.append('label("1",(%s, %s));' % end_label_point)
+        self.asy_commands.append('label("1",(%s, %s));' % end_label_point)
 
     def create_asy_commands(self):
 

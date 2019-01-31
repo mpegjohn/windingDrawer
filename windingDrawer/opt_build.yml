@@ -1,0 +1,48 @@
+
+insulation:
+    - name : pri2pri
+      thickness: 0.05mm
+      material: Nomex
+    - name : pri2sec
+      thickness: 0.12mm
+      material: DMD
+    - name : sec2sec
+      thickness: 0.05mm
+      material: Nomex
+wire:
+    - name: primary
+      bare_thickness: 0.25
+      max_thickness: 0.355
+      grade: 2
+    - name: seconadry_4Ohms
+      bare_thickness: 0.8
+      max_thickness: 0.844         
+      grade: 2
+ 
+build:
+    - section: 
+           name: sect1
+           layers: 2
+           start: l2r
+           interlayer_ins: pri2pri
+           top_insulation: none
+           bottom_insulation: none
+           wire: primary
+    - section: 
+           name: sec_4ohms
+           layers: 2
+           start: l2r
+           interlayer_ins: sec2sec
+           top_insulation: pri2sec
+           bottom_insulation: pri2sec
+           wire: seconadry_4Ohms        
+           
+           
+           
+             
+     
+
+
+
+
+
